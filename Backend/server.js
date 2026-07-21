@@ -28,6 +28,7 @@ const corsOptions = {
 
         //Allow anything explicitly listed in CLIENT_URL(comma separated)
         if(allowesOrigins.includes(origin)) return cb(null, true);
+        console.warn(`CORS Reject: origin="${origin}" CLIENT_URL="${process.env.CLIENT_URL}" allowed=${JSON.stringify(allowesOrigins)}`);
         return cb(new Error(`Origin ${origin} not allowed by CORS`));
     },
     credentials: true,
