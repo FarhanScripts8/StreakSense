@@ -26,6 +26,11 @@ const corsOptions = {
             return cb(null, true);
         }
 
+        //Allow any Vercel deployments for farhanscripts9
+        if (/^https:\/\/.*farhanscripts9.*\.vercel\.app$/.test(origin)) {
+            return cb(null, true);
+        }
+
         //Allow anything explicitly listed in CLIENT_URL(comma separated)
         if(allowesOrigins.includes(origin)) return cb(null, true);
         console.warn(`CORS Reject: origin="${origin}" CLIENT_URL="${process.env.CLIENT_URL}" allowed=${JSON.stringify(allowesOrigins)}`);
