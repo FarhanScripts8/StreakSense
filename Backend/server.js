@@ -26,8 +26,8 @@ const corsOptions = {
             return cb(null, true);
         }
 
-        //Allow any Vercel deployments for farhanscripts9
-        if (/^https:\/\/.*farhanscripts9.*\.vercel\.app$/.test(origin)) {
+        //Allow any Vercel deployments for farhanscripts or streak-sense
+        if (/^https:\/\/.*(farhanscripts|streak-sense).*\.vercel\.app$/.test(origin)) {
             return cb(null, true);
         }
 
