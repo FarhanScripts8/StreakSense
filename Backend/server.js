@@ -13,7 +13,7 @@ const app = express();
 
 const allowesOrigins = (process.env.CLIENT_URL || "")
    .split(",")
-   .map((s) => s.trim())
+   .map((s) => s.trim().replace(/\/$/, ""))
    .filter(Boolean);
 
 const corsOptions = {
